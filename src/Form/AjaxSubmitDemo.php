@@ -43,7 +43,6 @@ class AjaxSubmitDemo extends FormBase {
       '#value' => $this->t('Submit'),
       '#ajax' => [
         'callback' => '::setMessage',
-        'wrapper' => 'actions',
       ],
     ];
 
