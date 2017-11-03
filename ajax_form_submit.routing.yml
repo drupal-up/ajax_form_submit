@@ -1,0 +1,7 @@
+ajax_form_submit.ajax_submit_demo:
+  path: 'ajax-form-submit'
+  defaults:
+    _form:  '\Drupal\ajax_form_submit\Form\AjaxSubmitDemo'
+    _title: 'Ajax Submit Form'
+  requirements:
+    _permission: 'access content'
