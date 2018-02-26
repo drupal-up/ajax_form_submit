@@ -59,7 +59,7 @@ class AjaxSubmitDemo extends FormBase {
     $response->addCommand(
       new HtmlCommand(
         '.result_message',
-        '<div class="my_top_message">The result is ' . t('The results is @result', ['@result' => ($form_state->getValue('number_1') + $form_state->getValue('number_2'))]) . '</div>'),
+        '<div class="my_top_message">' . t('The results is @result', ['@result' => ($form_state->getValue('number_1') + $form_state->getValue('number_2'))]) . '</div>'),
     );
     return $response;
   }
