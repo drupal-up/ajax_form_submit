@@ -6,8 +6,9 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
+
 /**
- *
+ * Implementing a ajax form.
  */
 class AjaxSubmitDemo extends FormBase {
 
@@ -25,7 +26,7 @@ class AjaxSubmitDemo extends FormBase {
 
     $form['message'] = [
       '#type' => 'markup',
-      '#markup' => '<div class="result_message"></div>'
+      '#markup' => '<div class="result_message"></div>',
     ];
 
     $form['number_1'] = [
@@ -50,7 +51,7 @@ class AjaxSubmitDemo extends FormBase {
   }
 
   /**
-   *
+   * Setting the message in our form.
    */
   public function setMessage(array $form, FormStateInterface $form_state) {
 
@@ -58,13 +59,15 @@ class AjaxSubmitDemo extends FormBase {
     $response->addCommand(
       new HtmlCommand(
         '.result_message',
-        '<div class="my_top_message">The result is ' . t('The results is ') . ($form_state->getValue('number_1') + $form_state->getValue('number_2')) . '</div>')
+        '<div class="my_top_message">The result is ' . t('The results is @result', ['@result' => ($form_state->getValue('number_1') + $form_state->getValue('number_2'))]) . '</div>'),
     );
     return $response;
+  }
 
-   }
-
-   public function submitForm(array &$form, FormStateInterface $form_state) {
-   }
+  /**
+   * Submitting the form.
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+  }
 
 }
